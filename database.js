@@ -161,12 +161,12 @@ function seedServices() {
 
 function seedGallery() {
     const galleryItems = [
-        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500' },
-        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1562259949-956769132e18?w=500' },
-        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' },
-        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1600566753086-00f18282e969?w=500' },
-        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1595858546298-4efdd71ceb07?w=500' },
-        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1607502537525-4cb269d60afe?w=500' }
+        { title: 'House Cleaning', image_url: '/images/gallery/house-cleaning.jpg' },
+        { title: 'Office Cleaning', image_url: '/images/gallery/office-cleaning.jpg' },
+        { title: 'Deep Cleaning', image_url: '/images/gallery/deep-cleaning.jpg' },
+        { title: 'Move In/Out', image_url: '/images/gallery/move-inout.jpg' },
+        { title: 'Carpet & Upholstery', image_url: '/images/gallery/carpet-upholstery.jpg' },
+        { title: 'Post-Construction', image_url: '/images/gallery/post-construction.jpg' }
     ];
 
     const stmt = db.prepare("INSERT INTO gallery (title, image_url) VALUES (?, ?)");
