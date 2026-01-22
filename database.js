@@ -80,6 +80,12 @@ function initDb() {
                 seedAdmin();
             }
         });
+
+        db.get("SELECT count(*) as count FROM gallery", (err, row) => {
+            if (!err && row && row.count === 0) {
+                seedGallery();
+            }
+        });
     });
 }
 
@@ -150,6 +156,24 @@ function seedServices() {
     });
     stmt.finalize();
     console.log("Seeded initial services.");
+}
+
+function seedGallery() {
+    const galleryItems = [
+        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1581578731548-c64695c952952?w=500&h=400&fit=crop' },
+        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1563207153-f403bf289096?w=500&h=400&fit=crop' },
+        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1606925892917-0e62f50b0e0d?w=500&h=400&fit=crop' },
+        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=400&fit=crop' },
+        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1559027615-cd6628902d4a?w=500&h=400&fit=crop' },
+        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=400&fit=crop' }
+    ];
+
+    const stmt = db.prepare("INSERT INTO gallery (title, image_url) VALUES (?, ?)");
+    galleryItems.forEach(item => {
+        stmt.run(item.title, item.image_url);
+    });
+    stmt.finalize();
+    console.log("Seeded gallery images.");
 }
 
 module.exports = db;
