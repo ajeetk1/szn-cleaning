@@ -161,12 +161,12 @@ function seedServices() {
 
 function seedGallery() {
     const galleryItems = [
-        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
-        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1562259949-956769132e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
-        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
-        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1600566753086-00f18282e969?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
-        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1595858546298-4efdd71ceb07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
-        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1607502537525-4cb269d60afe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fDA%3D&auto=format&fit=crop&w=500&q=60' }
+        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500' },
+        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1562259949-956769132e18?w=500' },
+        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' },
+        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1600566753086-00f18282e969?w=500' },
+        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1595858546298-4efdd71ceb07?w=500' },
+        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1607502537525-4cb269d60afe?w=500' }
     ];
 
     const stmt = db.prepare("INSERT INTO gallery (title, image_url) VALUES (?, ?)");
