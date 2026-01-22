@@ -160,12 +160,12 @@ function seedServices() {
 
 function seedGallery() {
     const galleryItems = [
-        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1581578731548-c64695c952952?w=500&h=400&fit=crop' },
-        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1563207153-f403bf289096?w=500&h=400&fit=crop' },
-        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1606925892917-0e62f50b0e0d?w=500&h=400&fit=crop' },
-        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=400&fit=crop' },
-        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1559027615-cd6628902d4a?w=500&h=400&fit=crop' },
-        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=400&fit=crop' }
+        { title: 'House Cleaning', image_url: 'https://images.unsplash.com/photo-1584622281867-8d4c67b52e43?w=500&h=400&fit=crop' },
+        { title: 'Office Cleaning', image_url: 'https://images.unsplash.com/photo-1562259949-956769132e18?w=500&h=400&fit=crop' },
+        { title: 'Deep Cleaning', image_url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=400&fit=crop' },
+        { title: 'Move In/Out', image_url: 'https://images.unsplash.com/photo-1600566753086-00f18282e969?w=500&h=400&fit=crop' },
+        { title: 'Carpet & Upholstery', image_url: 'https://images.unsplash.com/photo-1595858546298-4efdd71ceb07?w=500&h=400&fit=crop' },
+        { title: 'Post-Construction', image_url: 'https://images.unsplash.com/photo-1607502537525-4cb269d60afe?w=500&h=400&fit=crop' }
     ];
 
     const stmt = db.prepare("INSERT INTO gallery (title, image_url) VALUES (?, ?)");
