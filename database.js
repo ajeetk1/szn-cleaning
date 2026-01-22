@@ -81,8 +81,9 @@ function initDb() {
             }
         });
 
-        db.get("SELECT count(*) as count FROM gallery", (err, row) => {
-            if (!err && row && row.count === 0) {
+        // Always update gallery with correct images (this ensures fresh data)
+        db.run("DELETE FROM gallery", (err) => {
+            if (!err) {
                 seedGallery();
             }
         });
