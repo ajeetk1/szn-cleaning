@@ -161,12 +161,12 @@ function seedServices() {
 
 function seedGallery() {
     const galleryItems = [
-        { title: 'House Cleaning', image_url: '/images/gallery/house-cleaning.jpg' },
-        { title: 'Office Cleaning', image_url: '/images/gallery/office-cleaning.jpg' },
-        { title: 'Deep Cleaning', image_url: '/images/gallery/deep-cleaning.jpg' },
-        { title: 'Move In/Out', image_url: '/images/gallery/move-inout.jpg' },
-        { title: 'Carpet & Upholstery', image_url: '/images/gallery/carpet-upholstery.jpg' },
-        { title: 'Post-Construction', image_url: '/images/gallery/post-construction.jpg' }
+        { title: 'House Cleaning', image_url: '/images/gallery/house-cleaning.png' },
+        { title: 'Office Cleaning', image_url: '/images/gallery/office-cleaning.png' },
+        { title: 'Deep Cleaning', image_url: '/images/gallery/deep-cleaning.png' },
+        { title: 'Move In/Out', image_url: '/images/gallery/move-inout.png' },
+        { title: 'Carpet & Upholstery', image_url: '/images/gallery/carpet-upholstery.png' },
+        { title: 'Post-Construction', image_url: '/images/gallery/post-construction.png' }
     ];
 
     const stmt = db.prepare("INSERT INTO gallery (title, image_url) VALUES (?, ?)");
