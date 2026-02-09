@@ -3,6 +3,7 @@ services:
     name: szn-cleaning
     env: node
     plan: free
+    rootDir: .
     startCommand: npm start
     buildCommand: npm install && npm run seed
     envVars:
