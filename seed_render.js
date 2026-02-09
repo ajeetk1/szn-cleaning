@@ -113,12 +113,12 @@ const content = [
 
 // Default services
 const services = [
-    { title: 'Regular House Cleaning', description: 'Weekly or bi-weekly cleaning for your home', icon: 'home' },
-    { title: 'Deep Cleaning', description: 'Thorough cleaning including hard-to-reach areas', icon: 'cleaning_services' },
+    // { title: 'Regular House Cleaning', description: 'Weekly or bi-weekly cleaning for your home', icon: 'home' },
+    // { title: 'Deep Cleaning', description: 'Thorough cleaning including hard-to-reach areas', icon: 'cleaning_services' },
     { title: 'Office Cleaning', description: 'Professional office space cleaning', icon: 'business' },
-    { title: 'Move-In/Move-Out', description: 'Complete cleaning for moving scenarios', icon: 'moving' },
-    { title: 'Carpet Cleaning', description: 'Professional carpet and upholstery cleaning', icon: 'dry_cleaning' },
-    { title: 'Post-Construction', description: 'Cleanup after renovation and construction', icon: 'construction' },
+    // { title: 'Move-In/Move-Out', description: 'Complete cleaning for moving scenarios', icon: 'moving' },
+    // { title: 'Carpet Cleaning', description: 'Professional carpet and upholstery cleaning', icon: 'dry_cleaning' },
+    // { title: 'Post-Construction', description: 'Cleanup after renovation and construction', icon: 'construction' },
 ];
 
 // Default admin (change this!)
