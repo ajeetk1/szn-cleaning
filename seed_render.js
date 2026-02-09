@@ -134,7 +134,7 @@ db.serialize(() => {
     console.log('📝 Seeding content...');
     const contentStmt = db.prepare("INSERT OR REPLACE INTO content (key, value) VALUES (?, ?)");
     let contentCount = 0;
-    
+
     content.forEach(item => {
         contentStmt.run(item.key, item.value, (err) => {
             if (err) {
@@ -150,21 +150,30 @@ db.serialize(() => {
 
     // Seed services
     console.log('🛠️  Seeding services...');
-    const servicesStmt = db.prepare("INSERT OR IGNORE INTO services (title, description, icon) VALUES (?, ?, ?)");
-    let servicesCount = 0;
-    
-    services.forEach(service => {
-        servicesStmt.run(service.title, service.description, service.icon, (err) => {
-            if (err) {
-                console.error(`❌ Error inserting service ${service.title}:`, err.message);
-            }
-            servicesCount++;
-            if (servicesCount === services.length) {
-                console.log(`✅ Services seeded (${services.length} items)\n`);
-            }
+    // Clear existing services to ensure exact list matches
+    db.run("DELETE FROM services", (err) => {
+        if (err) {
+            console.error("❌ Error clearing services table:", err.message);
+        } else {
+            console.log("🧹 Cleared existing services.");
+        }
+
+        const servicesStmt = db.prepare("INSERT INTO services (title, description, icon) VALUES (?, ?, ?)");
+        let servicesCount = 0;
+
+        services.forEach(service => {
+            servicesStmt.run(service.title, service.description, service.icon, (err) => {
+                if (err) {
+                    console.error(`❌ Error inserting service ${service.title}:`, err.message);
+                }
+                servicesCount++;
+                if (servicesCount === services.length) {
+                    console.log(`✅ Services seeded (${services.length} items)\n`);
+                }
+            });
         });
+        servicesStmt.finalize();
     });
-    servicesStmt.finalize();
 
     // Seed admin
     console.log('👤 Seeding admin user...');
@@ -177,7 +186,7 @@ db.serialize(() => {
             } else {
                 console.log(`✅ Admin user seeded\n`);
             }
-            
+
             // Print completion message
             console.log('═══════════════════════════════════════');
             console.log('✨ Database seeding complete!');
