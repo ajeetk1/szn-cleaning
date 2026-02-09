@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/header_logo.png" alt="SZN Cleaning" class="logo-img" id="header_logo_img">
+            </div>
+            <nav class="desktop-nav">
+                <a href="/">Home</a>
+                <a href="about">About</a>
+                <a href="services">Services</a>
+                <a href="gallery">Gallery</a>
+                <a href="contact">Contact</a>
+            </nav>
+            <button class="btn btn-primary desktop-cta" id="header-cta"
+                onclick="window.location.href='/#quote-form'">Book
+                Now</button>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <nav class="mobile-nav">
+                <a href="/" class="mobile-nav-link">Home</a>
+                <a href="about" class="mobile-nav-link">About</a>
+                <a href="services" class="mobile-nav-link">Services</a>
+                <a href="gallery" class="mobile-nav-link">Gallery</a>
+                <a href="contact" class="mobile-nav-link">Contact</a>
+                <button class="btn btn-primary btn-block mobile-cta" onclick="window.location.href='/#quote-form'">Book
+                    Now</button>
+            </nav>
+        </div>
+        <div class="mobile-menu-backdrop" id="mobile-backdrop"></div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="tagline">#1 PROFESSIONAL CLEANING SERVICE</span>
+                <h1 id="hero_title">Professional Cleaning Made Simple.</h1>
+                <p id="hero_subtitle">We are ready to clean up your place and verify it is clean. Fast, reliable and
+                    eco-friendly methods and 100% satisfaction guaranteed.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="cta_button_text">Get Started</button>
+                    <button class="btn btn-outline">Watch Video</button>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge"><span class="material-icons-outlined">verified</span> <span>Verified</span></div>
+                    <div class="badge"><span class="material-icons-outlined">thumb_up</span> <span>Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-form-card">
+                <div class="form-header">
+                    <span class="material-icons-outlined icon-circle">calculate</span>
+                    <h3>Get Instant Quote</h3>
+                    <p>Fill out the form below and we will get back to you with a free quote.</p>
+                </div>
+                <form id="quote-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" placeholder="(123) 456-7890" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type</label>
+                            <select name="service">
+                                <option>House Cleaning</option>
+                                <option>Office Cleaning</option>
+                                <option>Deep Cleaning</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="booking_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="booking_time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Details</label>
+                        <textarea name="details" rows="2" placeholder="Any specific requirements?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <div class="section-header text-center text-white">
+                <h2>Our Standard Working Process</h2>
+                <p>We follow a strict process to ensure high quality results.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-card active">
+                    <div class="icon-box"><span class="material-icons-outlined"
+                            id="process_1_icon">calendar_today</span></div>
+                    <h3 id="process_1_title">1. Get a Booking</h3>
+                    <p id="process_1_desc">Fill out the form to get a free quote.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="icon-box"><span class="material-icons-outlined"
+                            id="process_2_icon">cleaning_services</span></div>
+                    <h3 id="process_2_title">2. We Clean</h3>
+                    <p id="process_2_desc">Our team arrives and cleans your space.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="icon-box"><span class="material-icons-outlined" id="process_3_icon">thumb_up</span>
+                    </div>
+                    <h3 id="process_3_title">3. You Relax</h3>
+                    <p id="process_3_desc">Enjoy your clean space with peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="material-icons-outlined" id="services_header_icon"
+                    style="font-size: 3rem; color: var(--primary-color); display: block; margin-bottom: 10px;">cleaning_services</span>
+                <span class="tagline" id="services_tagline">Our Services</span>
+                <h2 id="services_title">Our Premium Services</h2>
+                <p id="services_desc">We offer a wide range of cleaning services to meet your needs.</p>
+            </div>
+            <div class="services-grid" id="services-grid">
+                <!-- Services will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip">
+        <div class="container cta-container">
+            <div class="cta-content">
+                <h2 id="cta_title">Get Your Free Quote</h2>
+                <p id="cta_desc">Ready to get started? Contact us today for a free consultation.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="material-icons-outlined">phone</span>
+                        <span id="cta_phone">0466 532 362</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons-outlined">email</span>
+                        <span id="cta_email">info@cleaningservice.com</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark" id="cta_btn">Contact Us</button>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <span class="tagline" id="about_tagline">ABOUT US</span>
+                <h2 id="about_title">You Can Depend On Us For<br>Professional Quality</h2>
+                <p id="about_desc">Founded on the principles of reliability and excellence, SZN Cleaning has
+                    established itself as a leader in residential and commercial cleaning. We don't just clean; we care
+                    for your space.</p>
+                <ul class="check-list">
+                    <li><span class="material-icons-outlined">star_border</span> 100% Satisfaction Guarantee - we
+                        reclean if you're not happy</li>
+                    <li><span class="material-icons-outlined">eco</span> Eco-friendly, non-toxic products safe for pets
+                        and kids</li>
+                    <li><span class="material-icons-outlined">lock_open</span> Fully bonded and insured staff for your
+                        peace of mind</li>
+                    <li><span class="material-icons-outlined">schedule</span> Flexible scheduling including weekends and
+                        evenings</li>
+                </ul>
+                </ul>
+                <button class="btn btn-outline" style="margin-top: 20px;" id="about_btn_text">More About Us</button>
+            </div>
+            <div class="about-image">
+                <img src="images/house_cleaning.png" alt="SZN Cleaning Team" id="about_img">
+                <div class="clients-card">
+                    <div class="avatars">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 2">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 3">
+                    </div>
+                    <div class="client-info">
+                        <h4>5k+ Clients</h4>
+                        <p>Trusted by thousands of homeowners and businesses across the city.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 id="testimonials_title">What Our Customers Say</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p id="testi_1_text">"The best cleaning service I have ever used. Highly recommended!"</p>
+                    <div class="user-info">
+                        <div class="avatar"></div>
+                        <div class="details">
+                            <h4 id="testi_1_name">John Doe</h4>
+                            <span id="testi_1_role">Home Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p id="testi_2_text">"Professional, on time, and very thorough. Will use again."</p>
+                    <div class="user-info">
+                        <div class="avatar"></div>
+                        <div class="details">
+                            <h4 id="testi_2_name">Jane Smith</h4>
+                            <span id="testi_2_role">Office Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p id="testi_3_text">"Great attention to detail. My house looks brand new."</p>
+                    <div class="user-info">
+                        <div class="avatar"></div>
+                        <div class="details">
+                            <h4 id="testi_3_name">Mike Johnson</h4>
+                            <span id="testi_3_role">Real Estate Agent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="images/footer_logo_home.png" alt="SZN Cleaning" class="logo-img home-footer-logo"
+                        id="footer_logo_img">
+                </div>
+                <p id="footer_desc_text">Professional cleaning services for your home and office.</p>
+
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">House Cleaning</a></li>
+                    <li><a href="#">Office Cleaning</a></li>
+                    <li><a href="#">Deep Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary"><span class="material-icons-outlined">send</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="copyright_text">Copyright@2026 SZN Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

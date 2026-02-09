@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cleaning Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/header_logo.png" alt="SZN Cleaning" class="logo-img" id="header_logo_img">
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="about">About</a>
+                <a href="services">Services</a>
+                <a href="gallery">Gallery</a>
+                <a href="contact" class="active">Contact</a>
+            </nav>
+            <button class="btn btn-primary" onclick="window.location.href='/#quote-form'">Book Now</button>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 60px 0; min-height: auto;">
+        <div class="container">
+            <h1 id="contact_hero_title" style="text-align: center; margin-bottom: 20px;">Contact Us</h1>
+            <p id="contact_hero_desc" style="text-align: center; max-width: 600px; margin: 0 auto;">We'd love to hear
+                from you. Reach out to us
+                for any questions or quotes.</p>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 50px 20px;">
+        <div style="display: flex; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2>Get In Touch</h2>
+                <p style="margin-bottom: 30px;">Have a question? Fill out the form or contact us directly.</p>
+
+                <div class="contact-item" style="margin-bottom: 20px;">
+                    <span class="material-icons-outlined"
+                        style="color: var(--primary-color); margin-right: 10px;">phone</span>
+                    <span id="phone_number">0466 532 362</span>
+                </div>
+                <div class="contact-item" style="margin-bottom: 20px;">
+                    <span class="material-icons-outlined"
+                        style="color: var(--primary-color); margin-right: 10px;">email</span>
+                    <span id="email">info@cleaningservice.com</span>
+                </div>
+                <div class="contact-item" style="margin-bottom: 20px;">
+                    <span class="material-icons-outlined"
+                        style="color: var(--primary-color); margin-right: 10px;">location_on</span>
+                    <span id="contact_address">123 Cleaning St, Clean City, ST 12345</span>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 300px;">
+                <form class="hero-form-card"
+                    style="width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #eee;">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-block">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="images/footer_logo_home.png" alt="SZN Cleaning" class="logo-img home-footer-logo"
+                        id="footer_logo_img">
+                </div>
+                <p id="footer_desc_text">Professional cleaning services for your home and office.</p>
+
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">House Cleaning</a></li>
+                    <li><a href="#">Office Cleaning</a></li>
+                    <li><a href="#">Deep Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary"><span class="material-icons-outlined">send</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="copyright_text">Copyright@2026 SZN Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
