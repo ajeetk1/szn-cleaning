@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     handleNavigation();
 });
 
+// Keep a map of originally loaded content to avoid overwriting unchanged fields
+const originalContentMap = {};
+
 async function checkAuth() {
     try {
         const response = await fetch('/api/check-auth');
@@ -68,6 +71,8 @@ async function loadContent() {
             const element = document.getElementById(item.key);
             if (element) {
                 element.value = item.value;
+                // store original value for change detection
+                originalContentMap[item.key] = (item.value || '');
             }
         });
     } catch (error) {
@@ -90,7 +95,21 @@ async function saveContent() {
     inputs.forEach(input => {
         // Exclude modal/new-service inputs and elements without an id
         if (input.id && !input.id.startsWith('new-service')) {
-            updates.push({ key: input.id, value: input.value });
+            const key = input.id;
+            const newValue = input.value || '';
+            const original = originalContentMap[key] || '';
+
+            // Only include fields that have changed
+            if (newValue !== original) {
+                // If new value is empty, confirm with the user
+                if (newValue.trim() === '') {
+                    const ok = confirm(`The field "${key}" is empty. This will clear its value site-wide. Continue?`);
+                    if (!ok) return; // skip this field
+                }
+                updates.push({ key, value: newValue });
+                // update original map so subsequent saves reflect the new baseline
+                originalContentMap[key] = newValue;
+            }
         }
     });
 
