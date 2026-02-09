@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Cleaning Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/header_logo.png" alt="SZN Cleaning" class="logo-img" id="header_logo_img">
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="about">About</a>
+                <a href="services" class="active">Services</a>
+                <a href="gallery">Gallery</a>
+                <a href="contact">Contact</a>
+            </nav>
+            <button class="btn btn-primary" onclick="window.location.href='/#quote-form'">Book Now</button>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 60px 0; min-height: auto;">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 20px;" id="services_hero_title">Our Services</h1>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;" id="services_hero_desc">Comprehensive
+                cleaning solutions for every
+                need.</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="services-grid" id="services-grid">
+                <!-- Services will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="included-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 id="included_title" style="color: white;">What's Included in Every Service</h2>
+                <p id="included_subtitle" style="color: #94A3B8;">Professional standards applied across all our
+                    offerings</p>
+            </div>
+            <div class="included-grid">
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined"
+                            id="inc_1_icon">verified_user</span></div>
+                    <h3 id="inc_1_title">Background Checked Team</h3>
+                    <p id="inc_1_desc">All staff thoroughly vetted for your safety and peace of mind</p>
+                </div>
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined" id="inc_2_icon">lock</span></div>
+                    <h3 id="inc_2_title">Fully Insured</h3>
+                    <p id="inc_2_desc">Complete coverage for any accidental damage during service</p>
+                </div>
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined" id="inc_3_icon">eco</span></div>
+                    <h3 id="inc_3_title">Eco-Friendly Products</h3>
+                    <p id="inc_3_desc">Safe for pets, children, and the environment</p>
+                </div>
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined" id="inc_4_icon">schedule</span>
+                    </div>
+                    <h3 id="inc_4_title">Flexible Scheduling</h3>
+                    <p id="inc_4_desc">Weekends, evenings, and same-day services available</p>
+                </div>
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined" id="inc_5_icon">star_border</span>
+                    </div>
+                    <h3 id="inc_5_title">Quality Guarantee</h3>
+                    <p id="inc_5_desc">Unsatisfied? We'll re-clean at no additional cost</p>
+                </div>
+                <div class="included-card">
+                    <div class="included-icon"><span class="material-icons-outlined" id="inc_6_icon">bolt</span></div>
+                    <h3 id="inc_6_title">No Hidden Fees</h3>
+                    <p id="inc_6_desc">Transparent pricing with upfront quotes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip" id="services_banner_bg" data-bg="true">
+        <div class="container">
+            <div class="services-banner">
+                <h2 id="services_banner_title">A cleaner space is just a click away!</h2>
+                <p id="services_banner_desc">Why waste your valuable time on cleaning when you can leave it to the
+                    professionals? Our expert team
+                    is ready.</p>
+                <button class="btn btn-white" onclick="window.location.href='/#quote-form'" id="services_banner_btn">Get
+                    Your Free Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="images/footer_logo_home.png" alt="SZN Cleaning" class="logo-img home-footer-logo"
+                        id="footer_logo_img">
+                </div>
+                <p id="footer_desc_text">Professional cleaning services for your home and office.</p>
+
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">House Cleaning</a></li>
+                    <li><a href="#">Office Cleaning</a></li>
+                    <li><a href="#">Deep Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary"><span class="material-icons-outlined">send</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="copyright_text">Copyright@2026 SZN Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

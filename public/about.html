@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cleaning Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/header_logo.png" alt="SZN Cleaning" class="logo-img" id="header_logo_img">
+            </div>
+            <nav class="desktop-nav">
+                <a href="/">Home</a>
+                <a href="about" class="active">About</a>
+                <a href="services">Services</a>
+                <a href="gallery">Gallery</a>
+                <a href="contact">Contact</a>
+            </nav>
+            <button class="btn btn-primary desktop-cta" onclick="window.location.href='/#quote-form'">Book Now</button>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <nav class="mobile-nav">
+                <a href="/" class="mobile-nav-link">Home</a>
+                <a href="about" class="mobile-nav-link active">About</a>
+                <a href="services" class="mobile-nav-link">Services</a>
+                <a href="gallery" class="mobile-nav-link">Gallery</a>
+                <a href="contact" class="mobile-nav-link">Contact</a>
+                <button class="btn btn-primary btn-block mobile-cta" onclick="window.location.href='/#quote-form'">Book
+                    Now</button>
+            </nav>
+        </div>
+        <div class="mobile-menu-backdrop" id="mobile-backdrop"></div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0; min-height: auto;">
+        <div class="container">
+            <h1 id="about_hero_title" style="text-align: center; margin-bottom: 20px;">About Us</h1>
+            <p id="about_hero_desc" style="text-align: center; max-width: 600px; margin: 0 auto;">We are a professional
+                cleaning company dedicated to making your life easier.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <span class="tagline" id="about_tagline_text">Who We Are</span>
+                <h2 id="about_main_title">Professional Cleaning With A Personal Touch</h2>
+                <p id="about_main_desc">Founded in 2010, SZN Cleaning has been serving the community with top-notch
+                    cleaning services. Our team is vetted, trained, and insured to provide you with peace of mind.</p>
+                <p id="about_desc_2">We use eco-friendly products that are safe for your family and pets. Our mission is
+                    to provide a
+                    clean and healthy environment for our clients.</p>
+                <ul class="check-list">
+                    <li><span class="material-icons-outlined">check_circle</span> 100% Satisfaction Guarantee</li>
+                    <li><span class="material-icons-outlined">check_circle</span> Professional and Experienced Team</li>
+                    <li><span class="material-icons-outlined">check_circle</span> Eco-Friendly Cleaning Products</li>
+                    <li><span class="material-icons-outlined">check_circle</span> Flexible Scheduling</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="images/house_cleaning.png" alt="SZN Cleaning Team" id="about_image_img">
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <div class="section-header text-center text-white">
+                <h2 id="about_values_title">Our Values</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="icon-box"><span class="material-icons-outlined">verified_user</span></div>
+                    <h3 id="value_1_title">Integrity</h3>
+                    <p id="value_1_desc">We are honest and transparent in our pricing and services.</p>
+                </div>
+                <div class="step-card">
+                    <div class="icon-box"><span class="material-icons-outlined">star</span></div>
+                    <h3 id="value_2_title">Excellence</h3>
+                    <p id="value_2_desc">We strive for perfection in every job we do.</p>
+                </div>
+                <div class="step-card">
+                    <div class="icon-box"><span class="material-icons-outlined">favorite</span></div>
+                    <h3 id="value_3_title">Care</h3>
+                    <p id="value_3_desc">We treat your home as if it were our own.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="images/footer_logo_home.png" alt="SZN Cleaning" class="logo-img home-footer-logo"
+                        id="footer_logo_img">
+                </div>
+                <p id="footer_desc_text">Professional cleaning services for your home and office.</p>
+
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">House Cleaning</a></li>
+                    <li><a href="#">Office Cleaning</a></li>
+                    <li><a href="#">Deep Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary"><span class="material-icons-outlined">send</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="copyright_text">Copyright@2026 SZN Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

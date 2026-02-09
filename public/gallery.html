@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Cleaning Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px 0;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/header_logo.png" alt="SZN Cleaning" class="logo-img" id="header_logo_img">
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="about">About</a>
+                <a href="services">Services</a>
+                <a href="gallery" class="active">Gallery</a>
+                <a href="contact">Contact</a>
+            </nav>
+            <button class="btn btn-primary" onclick="window.location.href='/#quote-form'">Book Now</button>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 60px 0; min-height: auto;">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 20px;" id="gallery_hero_title">Our Work</h1>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;" id="gallery_hero_desc">See the difference
+                we make. Before and
+                after shots of our cleaning projects.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Images loaded via JS -->
+            <div class="gallery-item"><img src="https://placehold.co/600x400/e0e0e0/333333?text=Loading..."
+                    alt="Loading"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="images/footer_logo_home.png" alt="SZN Cleaning" class="logo-img home-footer-logo"
+                        id="footer_logo_img">
+                </div>
+                <p id="footer_desc_text">Professional cleaning services for your home and office.</p>
+
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">House Cleaning</a></li>
+                    <li><a href="#">Office Cleaning</a></li>
+                    <li><a href="#">Deep Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary"><span class="material-icons-outlined">send</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="copyright_text">Copyright@2026 SZN Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

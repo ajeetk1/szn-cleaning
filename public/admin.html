@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/admin.css">
+    <style>
+        :root {
+            --primary-color: #2563EB;
+            --secondary-color: #1E293B;
+            --white: #FFFFFF;
+            --light-bg: #F1F5F9;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .nav-links li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: #94A3B8;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            background-color: #334155;
+            color: var(--white);
+        }
+
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #F8FAFC;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            background-color: #DCFCE7;
+            color: #166534;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="material-icons-outlined">admin_panel_settings</span>
+                <span>Admin Panel</span>
+            </div>
+            <nav>
+                <a href="#global" class="active" data-tab="global">Global Settings</a>
+                <a href="#home" data-tab="home">Home Page</a>
+                <a href="#about" data-tab="about">About Page</a>
+                <a href="#services" data-tab="services">Services Page</a>
+                <a href="#gallery" data-tab="gallery">Gallery</a>
+                <a href="#contact" data-tab="contact">Contact Page</a>
+                <a href="#bookings" data-tab="bookings">Bookings</a>
+                <a href="index.html" target="_blank" class="view-site">View Site</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Global Settings Section -->
+            <section id="global" class="tab-content active">
+                <div class="header">
+                    <h1>Global Settings (Header & Footer)</h1>
+                    <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                </div>
+                <div class="card">
+                    <h3>Header</h3>
+                    <div class="form-group">
+                        <label>Header Logo URL</label>
+                        <input type="text" id="header_logo_img" placeholder="images/header_logo.png">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Footer</h3>
+                    <div class="form-group">
+                        <label>Footer Logo URL</label>
+                        <input type="text" id="footer_logo_img" placeholder="images/footer_logo_home.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Footer Description</label>
+                        <textarea id="footer_desc_text" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Copyright Text</label>
+                        <input type="text" id="copyright_text">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home Page Section -->
+            <section id="home" class="tab-content">
+                <div class="header">
+                    <h1>Home Page Content</h1>
+                    <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                </div>
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Title</label>
+                        <input type="text" id="hero_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Subtitle</label>
+                        <textarea id="hero_subtitle" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>CTA Button Text</label>
+                        <input type="text" id="cta_button_text">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Process Section</h3>
+                    <div class="form-group">
+                        <label>Step 1 Title</label>
+                        <input type="text" id="process_1_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 1 Description</label>
+                        <input type="text" id="process_1_desc">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 1 Icon</label>
+                        <input type="text" id="process_1_icon">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 2 Title</label>
+                        <input type="text" id="process_2_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 2 Description</label>
+                        <input type="text" id="process_2_desc">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 2 Icon</label>
+                        <input type="text" id="process_2_icon">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 3 Title</label>
+                        <input type="text" id="process_3_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 3 Description</label>
+                        <input type="text" id="process_3_desc">
+                    </div>
+                    <div class="form-group">
+                        <label>Step 3 Icon</label>
+                        <input type="text" id="process_3_icon">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>About Section</h3>
+                    <div class="form-group">
+                        <label>Tagline</label>
+                        <input type="text" id="about_tagline">
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="about_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="about_desc" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" id="about_img">
+                    </div>
+                    <div class="form-group">
+                        <label>Button Text</label>
+                        <input type="text" id="about_btn_text">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Services Section Headers</h3>
+                    <div class="form-group">
+                        <label>Header Icon</label>
+                        <input type="text" id="services_header_icon">
+                    </div>
+                    <div class="form-group">
+                        <label>Tagline</label>
+                        <input type="text" id="services_tagline">
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="services_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" id="services_desc">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Testimonials</h3>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" id="testimonials_title">
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 1 Text</label>
+                            <input type="text" id="testi_1_text">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 1 Name</label>
+                            <input type="text" id="testi_1_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 1 Role</label>
+                            <input type="text" id="testi_1_role">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 2 Text</label>
+                            <input type="text" id="testi_2_text">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 2 Name</label>
+                            <input type="text" id="testi_2_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 2 Role</label>
+                            <input type="text" id="testi_2_role">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 3 Text</label>
+                            <input type="text" id="testi_3_text">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 3 Name</label>
+                            <input type="text" id="testi_3_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 3 Role</label>
+                            <input type="text" id="testi_3_role">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>CTA Strip</h3>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="cta_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" id="cta_desc">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="cta_phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="cta_email">
+                    </div>
+                    <div class="form-group">
+                        <label>Button Text</label>
+                        <input type="text" id="cta_btn">
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Page Section -->
+            <section id="about" class="tab-content">
+                <div class="header">
+                    <h1>About Page Content</h1>
+                    <div>
+                        <a href="about.html" target="_blank" class="btn btn-secondary" style="margin-right: 10px;">View
+                            Page</a>
+                        <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Title</label>
+                        <input type="text" id="about_hero_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description</label>
+                        <textarea id="about_hero_desc" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Main Content</h3>
+                    <div class="form-group">
+                        <label>Tagline</label>
+                        <input type="text" id="about_tagline_text">
+                    </div>
+                    <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" id="about_main_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Main Description</label>
+                        <textarea id="about_main_desc" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Second Paragraph</label>
+                        <textarea id="about_desc_2" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" id="about_image_img">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Values Section</h3>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" id="about_values_title">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Value 1 Title</label>
+                            <input type="text" id="value_1_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Value 1 Desc</label>
+                            <input type="text" id="value_1_desc">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Value 2 Title</label>
+                            <input type="text" id="value_2_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Value 2 Desc</label>
+                            <input type="text" id="value_2_desc">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Value 3 Title</label>
+                            <input type="text" id="value_3_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Value 3 Desc</label>
+                            <input type="text" id="value_3_desc">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Page Section -->
+            <section id="services" class="tab-content">
+                <div class="header">
+                    <h1>Services Page Content</h1>
+                    <div>
+                        <a href="services.html" target="_blank" class="btn btn-secondary"
+                            style="margin-right: 10px;">View Page</a>
+                        <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Title</label>
+                        <input type="text" id="services_hero_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description</label>
+                        <input type="text" id="services_hero_desc">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>"What's Included" Section</h3>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" id="included_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Section Subtitle</label>
+                        <input type="text" id="included_subtitle">
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 1 Title</label>
+                            <input type="text" id="inc_1_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 1 Desc</label>
+                            <input type="text" id="inc_1_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 1 Icon</label>
+                            <input type="text" id="inc_1_icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 2 Title</label>
+                            <input type="text" id="inc_2_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 2 Desc</label>
+                            <input type="text" id="inc_2_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 2 Icon</label>
+                            <input type="text" id="inc_2_icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 3 Title</label>
+                            <input type="text" id="inc_3_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 3 Desc</label>
+                            <input type="text" id="inc_3_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 3 Icon</label>
+                            <input type="text" id="inc_3_icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 4 Title</label>
+                            <input type="text" id="inc_4_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 4 Desc</label>
+                            <input type="text" id="inc_4_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 4 Icon</label>
+                            <input type="text" id="inc_4_icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 5 Title</label>
+                            <input type="text" id="inc_5_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 5 Desc</label>
+                            <input type="text" id="inc_5_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 5 Icon</label>
+                            <input type="text" id="inc_5_icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card 6 Title</label>
+                            <input type="text" id="inc_6_title">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 6 Desc</label>
+                            <input type="text" id="inc_6_desc">
+                        </div>
+                        <div class="form-group">
+                            <label>Card 6 Icon</label>
+                            <input type="text" id="inc_6_icon">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Services Banner (Bottom)</h3>
+                    <div class="form-group">
+                        <label>Banner Title</label>
+                        <input type="text" id="services_banner_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Banner Description</label>
+                        <textarea id="services_banner_desc" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Button Text</label>
+                        <input type="text" id="services_banner_btn">
+                    </div>
+                    <div class="form-group">
+                        <label>Background Image URL</label>
+                        <input type="text" id="services_banner_bg">
+                    </div>
+                </div>
+
+                <div class="header" style="margin-top: 40px;">
+                    <h2>Manage Services List</h2>
+                    <button class="btn btn-secondary" onclick="showAddServiceModal()">Add New Service</button>
+                </div>
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-table-body">
+                            <!-- Services loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="tab-content">
+                <div class="header">
+                    <h1>Gallery Management</h1>
+                    <div>
+                        <a href="gallery.html" target="_blank" class="btn btn-secondary"
+                            style="margin-right: 10px;">View Page</a>
+                        <button class="btn btn-secondary" onclick="showAddGalleryModal()">Add New Image</button>
+                        <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Title</label>
+                        <input type="text" id="gallery_hero_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description</label>
+                        <input type="text" id="gallery_hero_desc">
+                    </div>
+                </div>
+                <div class="card">
+                    <div id="gallery-grid-admin"
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+                        <!-- Gallery images loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Add Gallery Modal -->
+                <div id="add-gallery-modal" class="modal">
+                    <div class="modal-content">
+                        <h3>Add New Image</h3>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="new-gallery-title">
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL</label>
+                            <input type="text" id="new-gallery-url" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="closeGalleryModal()">Cancel</button>
+                            <button class="btn btn-primary" onclick="addGalleryImage()">Add Image</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Page Section -->
+            <section id="contact" class="tab-content">
+                <div class="header">
+                    <h1>Contact Page Content</h1>
+                    <div>
+                        <a href="contact.html" target="_blank" class="btn btn-secondary"
+                            style="margin-right: 10px;">View Page</a>
+                        <button class="btn btn-primary" onclick="saveContent()">Save Changes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Title</label>
+                        <input type="text" id="contact_hero_title">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description</label>
+                        <textarea id="contact_hero_desc" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Contact Info</h3>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="phone_number">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Physical Address</label>
+                        <input type="text" id="contact_address">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookings" class="tab-content">
+                <div class="header">
+                    <h1>Bookings</h1>
+                    <button class="btn btn-secondary" onclick="loadBookings()">Refresh</button>
+                </div>
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Service</th>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-table-body">
+                            <!-- Bookings loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Service Modal -->
+    <div id="add-service-modal" class="modal">
+        <div class="modal-content">
+            <h3>Add New Service</h3>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="new-service-title">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="new-service-desc"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Icon (Material Icon Name)</label>
+                <input type="text" id="new-service-icon">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="addService()">Add Service</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Service Modal -->
+    <div id="edit-service-modal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Service</h3>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="edit-service-title">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="edit-service-desc"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Icon (Material Icon Name)</label>
+                <input type="text" id="edit-service-icon">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="updateService()">Update Service</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin.js"></script>
+</body>
+
+</html>
