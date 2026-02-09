@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: szn-cleaning
+    env: node
+    plan: free
+    startCommand: npm start
+    buildCommand: npm install && npm run seed
+    envVars:
+      - key: NODE_ENV
+        value: production
